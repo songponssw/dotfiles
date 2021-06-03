@@ -1,3 +1,5 @@
+" Credit Pisachiology, Supasorn
+"
 " vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -37,10 +39,9 @@ nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFocus<CR>
 
 " Tab nav
-nnoremap <leader>l   :tabNext<CR>
-nnoremap <leader>h   :tabprevious<CR>
-nnoremap <leader>d   :tabclose<CR>
-nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>l   :bnext<CR>
+nnoremap <leader>h   :bp<CR>
+nnoremap <leader>qq   :bdelete<CR>
 
 " Tab & Indent
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -53,3 +54,6 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
