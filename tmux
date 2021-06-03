@@ -7,3 +7,11 @@ bind-key h select-pane -L
 bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
+
+set-option -g default-command zsh
+
+set -g default-terminal "screen-256color"
+
+set -g status-style bg='#44475a',fg='#bd93f9'
+set -g pane-border-style fg='#6272a4'
+set -g pane-active-border-style fg='#ff79c6'
