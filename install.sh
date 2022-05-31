@@ -4,6 +4,7 @@ OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release);
 
 packages="vim curl tmux git";
 
+<<<"
 if [ "$OS" == '"Ubuntu"' ];
 then
     echo "apt-get install $packages"
@@ -14,7 +15,9 @@ else
     sudo um -y update
     sudo yum install -y $packages
 fi
+"
 
 mv vim .vim
 ln -sf ~/.vim/vimrc ~/.vimrc
 ln -sf ~/.vim/tmux ~/.tmux.conf
+tmux source-file ~/.tmux.conf
