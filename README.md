@@ -1,3 +1,6 @@
 #!/bin/bash
-git clone https://github.com/songponssw/vim.git ~/.vim
-bash ~/.vim/install.sh
+git clone https://github.com/songponssw/dotfiles.git 
+bash ./dotfiles/install.sh nvim|vim sudo|root 
+
+Credit:
+* nvim: https://github.com/LunarVim/nvim-basic-ide

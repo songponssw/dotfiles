@@ -5,6 +5,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Must be set here
 let g:dracula_italic = 0
 
 " Plugin
@@ -15,31 +16,25 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 " Base
 filetype on
-"syntax on
+syntax on
 set mouse=a
 set number
 set t_Co=256
 set encoding=utf-8
 let mapleader = " "
-colorscheme dracula
-
 
 " Tab nav
-nnoremap <leader>l   :bnext<CR>
-nnoremap <leader>h   :bp<CR>
-nnoremap <leader>qq   :bdelete<CR>
+nnoremap <S-l>   :bnext<CR>
+nnoremap <S-h>   :bp<CR>
+nnoremap <S-q>  :bdelete<CR>
 
 " Tab & Indent
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 set autoindent smarttab smartindent cindent
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Share clipboard
 if has("clipboard")
@@ -49,3 +44,7 @@ if has("clipboard")
   endif
 endif
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+colorscheme dracula

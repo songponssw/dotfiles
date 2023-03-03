@@ -1,23 +1,49 @@
 #!/bin/bash
+OS=$(awk -F= '/^ID_LIKE/{print $2}' /etc/os-release);
 
-OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release);
+vim_pkgs="vim curl tmux git"
+nvim_pkgs="wget git build-essential ripgrep wl-clipboard luarocks python3 python3-pip npm"
+cmd_header=""
 
-packages="vim curl tmux git";
+apt-get(){
+  echo "$cmd_header apt install -y $@"
+  $cmd_header apt install -y $@
+}
 
-<<<"
-if [ "$OS" == '"Ubuntu"' ];
+vim(){
+  apt-get $vim_pkgs
+  ln -sf ~/.vim/vimrc vimrc
+}
+
+nvim(){
+  apt-get $nvim_pkgs
+  wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+  dpkg -i nvim-linux64.deb
+}
+
+sync(){
+  cd dotfiles cp -r nvim  ~/.config/nvim
+  ln -sf ~/.vim/tmux ~/.tmux.conf
+  tmux source-file ~/.tmux.conf"
+}
+
+
+if [ -z "$2" ]
 then
-    echo "apt-get install $packages"
-    sudo apt-get -y update 
-    sudo apt-get install -y $packages
+  echo  "Syntax: ./install vim|nvim root|sudo"
 else
-    echo "yum install $packages"
-    sudo um -y update
-    sudo yum install -y $packages
-fi
-"
+  if [ "$2" == "root" ]
+  then
+    cmd_header=""
+  elif [ "$2" == "sudo" ]
+  then
+    cmd_header="sudo"
+  else
+    echo "Error user mode"
+    exit 0
+  fi
 
-mv vim .vim
-ln -sf ~/.vim/vimrc ~/.vimrc
-ln -sf ~/.vim/tmux ~/.tmux.conf
-tmux source-file ~/.tmux.conf
+  $1 $2
+  sync
+  echo "Install Successfully"
+fi
