@@ -2,7 +2,7 @@
 OS=$(awk -F= '/^ID_LIKE/{print $2}' /etc/os-release);
 
 vim_pkgs="vim curl tmux git"
-nvim_pkgs="tmux wget git build-essential ripgrep wl-clipboard luarocks python3 python3-pip npm"
+nvim_pkgs="wget git tmux  build-essential ripgrep wl-clipboard luarocks python3 python3-pip npm"
 cmd_header=""
 
 apt-get(){
@@ -27,6 +27,7 @@ sync-tmux(){
   cp tmux.conf ~/.tmux.conf
   tmux source-file ~/.tmux.conf
 }
+
 
 
 if [ -z "$2" ]
