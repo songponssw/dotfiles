@@ -2,7 +2,7 @@
 OS=$(awk -F= '/^ID_LIKE/{print $2}' /etc/os-release);
 
 vim_pkgs="vim curl tmux git"
-nvim_pkgs="wget git build-essential ripgrep wl-clipboard luarocks python3 python3-pip npm"
+nvim_pkgs="wget git tmux  build-essential ripgrep wl-clipboard luarocks python3 python3-pip npm"
 cmd_header=""
 
 apt-get(){
@@ -17,14 +17,15 @@ vim(){
 
 nvim(){
   apt-get $nvim_pkgs
-  wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
-  dpkg -i nvim-linux64.deb
+  wget -O nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+  $cmd_header dpkg -i nvim.deb
+  cp -r nvim  ~/.config/nvim
 }
 
 sync(){
-  cd dotfiles cp -r nvim  ~/.config/nvim
-  ln -sf ~/.vim/tmux ~/.tmux.conf
-  tmux source-file ~/.tmux.conf"
+  ln -sf tmux ~/.tmux.conf
+  #ln -sf ~/.tmux.conf tmux
+  tmux source-file ~/.tmux.conf
 }
 
 
