@@ -104,7 +104,7 @@ return packer.startup(function(use)
   -- Addtional plugions
  -- Using Packer:
   use { "catppuccin/nvim", as = "catppuccin" }
-
+  use { "aserowy/tmux.nvim"}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
