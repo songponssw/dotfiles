@@ -103,12 +103,8 @@ return packer.startup(function(use)
 
   -- Addtional plugions
  -- Using Packer:
-  -- use { "catppuccin/nvim", as = "catppuccin" }
+  use { "catppuccin/nvim", as = "catppuccin" }
 
-  -- My additional
-  use {"Mofiqul/dracula.nvim", as = "dracular"}
-  use { "aserowy/tmux.nvim"}
-  use { "rebelot/kanagawa.nvim"}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

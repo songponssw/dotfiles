@@ -12,21 +12,22 @@ apt-get(){
 
 vim(){
   apt-get $vim_pkgs
-  ln -sf ~/.vim/vimrc vimrc
+  cp vimrc ~/.vim/vimrc vimrc
 }
 
 nvim(){
   apt-get $nvim_pkgs
   wget -O nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
   $cmd_header dpkg -i nvim.deb
+  rm nvim.deb
   cp -r nvim  ~/.config/nvim
 }
 
-sync(){
-  ln -sf tmux ~/.tmux.conf
-  #ln -sf ~/.tmux.conf tmux
+sync-tmux(){
+  cp tmux.conf ~/.tmux.conf
   tmux source-file ~/.tmux.conf
 }
+
 
 
 if [ -z "$2" ]
@@ -45,6 +46,6 @@ else
   fi
 
   $1 $2
-  sync
+  sync-tmux
   echo "Install Successfully"
 fi
