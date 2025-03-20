@@ -5,8 +5,7 @@ local servers = {
 	"jsonls",
 	"yamlls",
   "cmake",
-  "clangd",
-  "gopls"
+  "clangd"
 }
 
 local settings = {
