@@ -5,7 +5,8 @@ local servers = {
 	"jsonls",
 	"yamlls",
   "cmake",
-  "clangd"
+  "clangd",
+  "eslint",
 }
 
 local settings = {
