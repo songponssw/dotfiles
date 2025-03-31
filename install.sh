@@ -16,11 +16,14 @@ vim(){
 }
 
 nvim(){
-  apt-get $nvim_pkgs
-  wget -O nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
-  $cmd_header dpkg -i nvim.deb
-  rm nvim.deb
-  cp -r nvim  ~/.config/nvim
+  echo "Go manully install nvim 0.8.3"
+  echo "run : cp -r nvim  ~/.config/nvim"
+  # cp -r nvim  ~/.config/nvim
+  # apt-get $nvim_pkgs
+  # wget -O nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+  # $cmd_header dpkg -i nvim.deb
+  # rm nvim.deb
+  # cp -r nvim  ~/.config/nvim
 }
 
 sync-tmux(){
