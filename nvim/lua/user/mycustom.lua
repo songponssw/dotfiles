@@ -11,5 +11,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 vim.api.nvim_set_keymap("i", "<M-BS>", "<C-w>", { noremap = true }) -- Allow alt+backspace in insertmode
 
 
+vim.opt.clipboard = "unnamedplus"
+
 
 

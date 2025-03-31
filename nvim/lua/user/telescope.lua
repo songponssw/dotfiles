@@ -20,6 +20,9 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
       },
+      n = {
+        ["<CR>"] = actions.select_default,  -- Open file on Enter in normal mode
+      },
     },
   },
 }
