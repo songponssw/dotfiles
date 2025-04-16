@@ -76,6 +76,15 @@ require("formatter").setup({
         }
       end
     },
+    go = {
+      function()
+        return {
+          exe = "goimports",
+          args = {},
+          stdin = true,
+        }
+      end
+    },
   },
 })
 

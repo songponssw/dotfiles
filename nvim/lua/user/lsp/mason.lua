@@ -1,5 +1,4 @@
 local servers = {
-	"sumneko_lua",
 	"pyright",
 	"bashls",
 	"jsonls",
@@ -7,6 +6,8 @@ local servers = {
   "cmake",
   "clangd",
   "eslint",
+  "gopls",
+  -- "lua-language-server",
 }
 
 local settings = {
