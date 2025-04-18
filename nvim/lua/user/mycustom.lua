@@ -20,4 +20,12 @@ vim.api.nvim_set_option("clipboard", "unnamedplus")
 --   endif
 -- endif
 
-
+vim.opt.smarttab = true
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = "go",
+  callback = function()
+    vim.bo.tabstop = 8
+    vim.bo.shiftwidth = 8
+    vim.bo.expandtab = false
+  end,
+})
