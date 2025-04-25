@@ -7,6 +7,7 @@ local servers = {
   "clangd",
   "eslint",
   "gopls",
+  "texlab",
   -- "lua-language-server",
 }
 
@@ -28,8 +29,9 @@ require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
 })
--- require('lspconfig').golangci_lint_ls.setup{}
+require('lspconfig').golangci_lint_ls.setup{}
 require('lspconfig').gopls.setup{}
+require('lspconfig').texlab.setup{}
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
